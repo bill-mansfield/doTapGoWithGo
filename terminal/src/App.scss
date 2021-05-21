@@ -1,0 +1,95 @@
+//Colors
+$black: #222222;
+$white: #fff;
+$blue: #1C5D99;
+$light-blue: #639FAB;
+$green: #639FAB;
+
+//Breakpoints
+$sm: 320px;
+$md: 768px;
+$lg: 1200px;
+
+//Mixins
+@mixin sm {
+  @media (min-width: #{$sm}) {
+      @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$md}) {
+      @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$lg}) {
+      @content;
+  }
+}
+
+//Styles
+.app {
+  text-align: center;
+  background-color: $black;
+  height: 100vh;
+
+  @media (prefers-reduced-motion: no-preference) {
+    .app__logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  .app__header, body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: $white
+  }
+
+  .app__logo {
+    height: 12vmin;
+    pointer-events: none;
+  }
+
+  .form {
+    width: 100%;
+    margin-top: 20px;
+    
+    .form__amount {
+      padding: 10px;
+      border: 0;
+      box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+      border-radius: 10px;
+      align-self: flex-end;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .form__submit {
+      background-color: $green;
+      margin-left: 5px;
+      padding: 10px;
+      align-self: flex-end;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      position: relative;
+      color: $white;
+      font-size: 12px
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
